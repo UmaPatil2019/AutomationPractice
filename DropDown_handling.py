@@ -5,7 +5,7 @@ from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.select import Select
 from webdriver_manager.chrome import ChromeDriverManager
-
+#for dropdowns import select class and use its methods to select an option from the dropdown
 driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
 
 driver.get("https://www.globalsqa.com/demo-site/select-dropdown-menu/")
@@ -31,9 +31,11 @@ for i in allOptions:
     print(i.text)
 
 #select option from without builtin select methods like select by value, visible, index
-driver.find_elements(By.XPATH, "")
+#driver.find_elements(By.XPATH, "")
 for i in allOptions:
     if i.text == 'India':
         i.click()
         break
+
+time.sleep(5)
 driver.close()
